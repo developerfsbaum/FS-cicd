@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 4000
+const host = "0.0.0.0"
 
 const tasks = {}
 
@@ -27,7 +28,7 @@ app.delete('/tasks/:id', (req,res)=>{
 
 
 app.listen(port, () => {
-  console.log(`Todo app listening at http://localhost:${port}`)
+  console.log(`Todo app listening at http://${host}:${port}`)
   console.log('GET    ---   /tasks')
   console.log('POST   ---   /tasks')
   console.log('DELETE ---   /tasks')
