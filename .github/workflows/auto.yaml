@@ -19,9 +19,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
 
-          sudo rm -rf /var/www/html/* 
 
-          sudo systemctl stop fullstack.service 
          
           cd /home/ubuntu/FS-cicd
           git pull origin main 
@@ -30,5 +28,7 @@ jobs:
           cd /home/ubuntu/FS-cicd/frontend
           npm install --production
           npm run build
+          sudo rm -rf /var/www/html/* 
           sudo cp -r /home/ubuntu/FS-cicd/frontend/build/* /var/www/html/ 
-          sudo systemctl restart fullstack.service
+          sudo systemctl stop fullstack.service 
+          sudo systemctl start fullstack.service
