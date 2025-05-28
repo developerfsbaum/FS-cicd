@@ -3,15 +3,14 @@ const app = express()
 const port = 4000
 
 const tasks = {}
-const names = {}
 
 app.use(express.json())
 
-app.get('/tasks', (req, res) => {    
+app.get('/api/tasks', (req, res) => {    
         res.send(tasks)
 })
 
-app.post('/tasks', (req,res)=>{
+app.post('/api/tasks', (req,res)=>{
     const requestBody = req.body
     tasks[requestBody.task_id] = {}
     tasks[requestBody.task_id].taskName = requestBody.task_name
@@ -20,17 +19,17 @@ app.post('/tasks', (req,res)=>{
     res.send(tasks[requestBody.task_id])
 })
 
-app.delete('/tasks/:id', (req,res)=>{
+app.delete('/api/tasks/:id', (req,res)=>{
     const task_id = req.params.id
     delete tasks[task_id]
     res.send("Delete Success")
 })
 
-app.get('/names', (req, res) => {    
-        res.send(names)
+app.get('/api/names', (req, res) => {    
+        res.send(tasks)
 })
 
-app.post('/names', (req,res)=>{
+app.post('/api/names', (req,res)=>{
     const requestBody = req.body
     names[requestBody.name_id] = {}
     names[requestBody.name_id].name = requestBody.name
@@ -39,7 +38,7 @@ app.post('/names', (req,res)=>{
     res.send(names[requestBody.name_id])
 })
 
-app.delete('/names/:id', (req,res)=>{
+app.delete('/api/names/:id', (req,res)=>{
     const name_id = req.params.id
     delete names[name_id]
     res.send("Delete Success")
@@ -48,10 +47,10 @@ app.delete('/names/:id', (req,res)=>{
 
 app.listen(port, () => {
   console.log(`Todo app listening op port ${port} you can try local: http://localhost:${port}`)
-  console.log('GET    ---   /tasks')
-  console.log('POST   ---   /tasks')
-  console.log('DELETE ---   /tasks')
-  console.log('GET    ---   /names')
-  console.log('POST   ---   /names')
-  console.log('DELETE ---   /names')
+  console.log('GET    ---   /api/tasks')
+  console.log('POST   ---   /api/tasks')
+  console.log('DELETE ---   /api/tasks')
+  console.log('GET    ---   /api/names')
+  console.log('POST   ---   /api/names')
+  console.log('DELETE ---   /api/names')
 })
