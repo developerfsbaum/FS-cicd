@@ -23,12 +23,12 @@ jobs:
 
           sudo systemctl stop fullstack.service 
          
-          cd /home/ubuntu/FC-cicd
+          cd /home/ubuntu/FS-cicd
           git pull origin main 
           cd ./backend
           npm install --production
-          cd /home/ubuntu/FC-cicd/frontend
+          cd /home/ubuntu/FS-cicd/frontend
           npm install --production
           npm run build
-          sudo cp -r /home/ubuntu/FC-cicd/frontend/build/* /var/www/html/ 
+          sudo cp -r /home/ubuntu/FS-cicd/frontend/build/* /var/www/html/ 
           sudo systemctl restart fullstack.service
