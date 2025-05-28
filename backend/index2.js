@@ -27,7 +27,7 @@ app.delete('/api/tasks/:id', (req,res)=>{
 })
 
 app.get('/api/names', (req, res) => {    
-        res.send(tasks)
+        res.send(names)
 })
 
 app.post('/api/names', (req,res)=>{
