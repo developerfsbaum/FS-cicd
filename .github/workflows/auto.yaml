@@ -16,10 +16,9 @@ jobs:
     - name: Set up Node.js for backend
       uses: actions/setup-node@v4
       with:
-        node-version: '20' # או גרסה אחרת שתואמת את הפרויקט שלך
+        node-version: '18' 
         cache: 'npm'
         cache-dependency-path: './backend/package-lock.json'
-      working-directory: ./backend # מעבר לתיקיית הבאקאנד
 
     - name: Install backend dependencies
       run: npm install
@@ -32,10 +31,9 @@ jobs:
     - name: Set up Node.js for frontend
       uses: actions/setup-node@v4
       with:
-        node-version: '20' # או גרסה אחרת שתואמת את הפרויקט שלך
+        node-version: '18' 
         cache: 'npm'
         cache-dependency-path: './frontend/package-lock.json' 
-      working-directory: ./frontend 
 
     - name: Install frontend dependencies
       run: npm install
