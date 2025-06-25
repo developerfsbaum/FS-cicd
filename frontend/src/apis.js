@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = 'http://18.199.101.32:4000'
+const baseURL = '/api'
 
 export const postTask = async (reqBody) => {
     const {data} = await axios.post(`${baseURL}/tasks`,reqBody)
