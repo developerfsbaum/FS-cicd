@@ -34,7 +34,7 @@ function Names() {
   return (
     <div className="main">
       <header className="title">
-        <h1>My Names</h1>
+        <h1>Names</h1>
       </header>
 
       <div className='elInputContanier'>
